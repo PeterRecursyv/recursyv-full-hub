@@ -30,22 +30,19 @@ export default function IntegrationDetail() {
       refetchOnWindowFocus: false,
     }
   );
-  const { data: spoke } = trpc.config.spokeIntegrationDetail.useQuery(
-    { id: spokeId || '' },
+  // Get all spoke integrations for this hub, then find the specific one
+  const { data: spokeIntegrations } = trpc.config.spokeIntegrationsForHub.useQuery(
+    { hubId: hubId || '' },
     { 
-      enabled: !!spokeId,
+      enabled: !!hubId,
       staleTime: 5 * 60 * 1000, // 5 minutes
       refetchOnWindowFocus: false,
     }
   );
-  const { data: relatedIntegrations } = trpc.config.relatedIntegrations.useQuery(
-    { spokeId: spokeId || '', limit: 3 },
-    { 
-      enabled: !!spokeId,
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      refetchOnWindowFocus: false,
-    }
-  );
+  const spoke = spokeIntegrations?.find((s: any) => s.id === spokeId);
+  
+  // Related integrations feature removed for MVP
+  const relatedIntegrations: any[] = [];
   const { data: branding } = trpc.config.branding.useQuery(undefined, {
     staleTime: 5 * 60 * 1000, // 5 minutes
     refetchOnWindowFocus: false,
@@ -457,7 +454,7 @@ export default function IntegrationDetail() {
                         </div>
                       </div>
                       <div className="flex flex-wrap gap-2">
-                        {relatedSpoke.categories.map(cat => (
+                        {relatedSpoke.categories.map((cat: string) => (
                           <Badge key={cat} variant="secondary" className="text-xs">
                             {cat}
                           </Badge>

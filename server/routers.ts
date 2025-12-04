@@ -2,6 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
+import { z } from "zod";
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -26,7 +27,7 @@ export const appRouter = router({
     }),
     // Get specific hub vendor by ID
     hubVendor: publicProcedure
-      .input((val: unknown) => val as { id?: string })
+      .input(z.object({ id: z.string().optional() }).optional())
       .query(async ({ input }) => {
         const { loadHubVendor, getCurrentHubVendorId } = await import('./config-loader');
         const hubVendorId = input?.id || getCurrentHubVendorId();
@@ -34,7 +35,7 @@ export const appRouter = router({
       }),
     // Get spoke integrations for a specific hub
     spokeIntegrationsForHub: publicProcedure
-      .input((val: unknown) => val as { hubId: string })
+      .input(z.object({ hubId: z.string() }))
       .query(async ({ input }) => {
         const { loadHubVendor, getHubSpokeIntegrations } = await import('./config-loader');
         const hubVendor = loadHubVendor(input.hubId);
