@@ -1,0 +1,235 @@
+[
+  {
+    "id": "zendesk",
+    "name": "Zendesk",
+    "description": "Customer service and engagement platform (instance-to-instance sync)",
+    "logo": "/assets/logos/zendesk.png",
+    "categories": ["Support", "Customer-Service", "ITSM"],
+    "available": true
+  },
+  {
+    "id": "servicenow",
+    "name": "ServiceNow",
+    "description": "Enterprise service management solution",
+    "logo": "/assets/logos/servicenow.png",
+    "categories": ["ITSM", "Enterprise"],
+    "available": true
+  },
+  {
+    "id": "freshservice",
+    "name": "Freshservice",
+    "description": "IT Service Management (ITSM) solution",
+    "logo": "/assets/logos/freshservice.png",
+    "categories": ["ITSM", "Service-Desk"],
+    "available": true
+  },
+  {
+    "id": "jira",
+    "name": "Jira",
+    "description": "Project and issue tracking software",
+    "logo": "/assets/logos/jira.png",
+    "categories": ["Project-Management", "Agile"],
+    "available": true
+  },
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "description": "CRM and customer success platform",
+    "logo": "/assets/logos/salesforce.png",
+    "categories": ["CRM", "Sales"],
+    "available": true
+  },
+  {
+    "id": "hubspot",
+    "name": "HubSpot",
+    "description": "Inbound marketing and sales platform",
+    "logo": "/assets/logos/hubspot.png",
+    "categories": ["CRM", "Marketing"],
+    "available": true
+  },
+  {
+    "id": "autotask",
+    "name": "Autotask",
+    "description": "Professional services automation",
+    "logo": "/assets/logos/autotask.png?v=2",
+    "categories": ["PSA", "Project-Management"],
+    "available": true
+  },
+  {
+    "id": "connectwise",
+    "name": "ConnectWise",
+    "description": "Business automation platform",
+    "logo": "/assets/logos/connectwise.png",
+    "categories": ["PSA", "RMM"],
+    "available": true
+  },
+  {
+    "id": "ninjone",
+    "name": "NinjaOne",
+    "description": "Unified IT operations platform",
+    "logo": "/assets/logos/ninjone.png",
+    "categories": ["RMM", "Monitoring"],
+    "available": true
+  },
+  {
+    "id": "atera",
+    "name": "Atera",
+    "description": "All-in-one RMM and PSA solution",
+    "logo": "/assets/logos/atera.png",
+    "categories": ["RMM", "PSA"],
+    "available": true
+  },
+  {
+    "id": "bmchelix",
+    "name": "BMC Helix",
+    "description": "Cloud-native service and operations management",
+    "logo": "/assets/logos/bmchelix.png",
+    "categories": ["ITSM", "AIOps"],
+    "available": true
+  },
+  {
+    "id": "dattormm",
+    "name": "Datto RMM",
+    "description": "Remote monitoring and management",
+    "logo": "/assets/logos/datto-rmm.png",
+    "categories": ["RMM", "Security"],
+    "available": true
+  },
+  {
+    "id": "dynamics365",
+    "name": "Dynamics 365",
+    "description": "Business applications suite",
+    "logo": "/assets/logos/dynamics365.png",
+    "categories": ["CRM", "ERP"],
+    "available": true
+  },
+  {
+    "id": "freshdesk",
+    "name": "Freshdesk",
+    "description": "Modern customer support solution",
+    "logo": "/assets/logos/freshdesk.png",
+    "categories": ["ITSM", "Helpdesk"],
+    "available": true
+  },
+  {
+    "id": "halo",
+    "name": "Halo",
+    "description": "Service desk and business management",
+    "logo": "/assets/logos/halo.png",
+    "categories": ["ITSM", "Service-Desk"],
+    "available": true
+  },
+  {
+    "id": "ivantineurons",
+    "name": "Ivanti Neurons",
+    "description": "AI-powered IT service and asset management platform",
+    "logo": "/assets/logos/ivantineurons.png",
+    "categories": ["ITSM", "AIOps", "Security"],
+    "available": true
+  },
+  {
+    "id": "kaseyabms",
+    "name": "Kaseya BMS",
+    "description": "Business management solution",
+    "logo": "/assets/logos/kaseyabms.png",
+    "categories": ["PSA", "ITSM"],
+    "available": true
+  },
+  {
+    "id": "manageengine",
+    "name": "ManageEngine",
+    "description": "Integrated IT management software",
+    "logo": "/assets/logos/manageengine.png",
+    "categories": ["ITSM", "Monitoring"],
+    "available": true
+  },
+  {
+    "id": "netsuite",
+    "name": "NetSuite",
+    "description": "Cloud-based enterprise resource planning (ERP)",
+    "logo": "/assets/logos/netsuite.png",
+    "categories": ["ERP", "Finance", "Cloud"],
+    "available": true
+  },
+  {
+    "id": "solarwinds",
+    "name": "SolarWinds",
+    "description": "IT management and monitoring solutions",
+    "logo": "/assets/logos/solarwinds.png",
+    "categories": ["Monitoring", "Network"],
+    "available": true
+  },
+  {
+    "id": "symphony",
+    "name": "Symphony",
+    "description": "Integrated business management",
+    "logo": "/assets/logos/symphony.png",
+    "categories": ["PSA", "Project-Management"],
+    "available": true
+  },
+  {
+    "id": "syspro",
+    "name": "Syspro",
+    "description": "Enterprise resource planning",
+    "logo": "/assets/logos/syspro.png",
+    "categories": ["ERP", "Manufacturing"],
+    "available": true
+  },
+  {
+    "id": "zoho",
+    "name": "Zoho",
+    "description": "Business and productivity suite",
+    "logo": "/assets/logos/zoho.png",
+    "categories": ["CRM", "Productivity"],
+    "available": true
+  },
+  {
+    "id": "topdesk",
+    "name": "TOPdesk",
+    "description": "Service management software for ITSM",
+    "logo": "/assets/logos/topdesk.jpg",
+    "categories": ["ITSM", "Service-Desk"],
+    "available": true
+  },
+  {
+    "id": "sysaid",
+    "name": "SysAid",
+    "description": "IT service management and help desk solution",
+    "logo": "/assets/logos/sysaid.png",
+    "categories": ["ITSM", "Helpdesk"],
+    "available": true
+  },
+  {
+    "id": "xurrent",
+    "name": "Xurrent",
+    "description": "Enterprise service management platform",
+    "logo": "/assets/logos/xurrent-logo.webp",
+    "categories": ["ITSM", "Enterprise"],
+    "available": true
+  },
+  {
+    "id": "deskpro",
+    "name": "Deskpro",
+    "description": "Helpdesk and customer support software",
+    "logo": "/assets/logos/deskpro.webp",
+    "categories": ["ITSM", "Helpdesk"],
+    "available": true
+  },
+  {
+    "id": "alemba",
+    "name": "Alemba",
+    "description": "Service management solution",
+    "logo": "/assets/logos/alemba.png",
+    "categories": ["ITSM", "Service-Desk"],
+    "available": true
+  },
+  {
+    "id": "teams",
+    "name": "Microsoft Teams",
+    "description": "Collaboration and communication platform",
+    "logo": "/assets/logos/teams.png",
+    "categories": ["Collaboration", "Communication"],
+    "available": true
+  }
+]
+

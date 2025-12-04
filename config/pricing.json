@@ -1,0 +1,58 @@
+{
+  "plans": [
+    {
+      "id": "plan-15min",
+      "name": "15 Minute Sync",
+      "syncInterval": "15 minutes",
+      "price": 750,
+      "currency": "USD",
+      "billingPeriod": "month",
+      "description": "Data syncs every 15 minutes",
+      "features": [
+        "Bidirectional synchronization",
+        "15-minute sync interval",
+        "Custom field mapping",
+        "Email support",
+        "12-month contract"
+      ]
+    },
+    {
+      "id": "plan-5min",
+      "name": "5 Minute Sync",
+      "syncInterval": "5 minutes",
+      "price": 900,
+      "currency": "USD",
+      "billingPeriod": "month",
+      "description": "Data syncs every 5 minutes",
+      "features": [
+        "Bidirectional synchronization",
+        "5-minute sync interval",
+        "Custom field mapping",
+        "Priority email support",
+        "12-month contract"
+      ],
+      "popular": true
+    },
+    {
+      "id": "plan-2min",
+      "name": "2 Minute Sync",
+      "syncInterval": "2 minutes",
+      "price": 1250,
+      "currency": "USD",
+      "billingPeriod": "month",
+      "description": "Data syncs every 2 minutes - fastest option",
+      "features": [
+        "Bidirectional synchronization",
+        "2-minute sync interval (fastest)",
+        "Custom field mapping",
+        "Priority support with dedicated account manager",
+        "12-month contract"
+      ]
+    }
+  ],
+  "contractTerms": {
+    "minimumPeriod": "12 months",
+    "syncIntervalChanges": "Sync intervals may be changed during the contract period",
+    "notes": "All plans include bidirectional data synchronization and custom field mapping"
+  }
+}

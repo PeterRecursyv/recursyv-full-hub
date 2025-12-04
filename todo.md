@@ -1,0 +1,47 @@
+# Recursyv Full Hub - Project TODO
+
+## Configuration & Setup
+- [x] Copy all 6 hub vendor configuration files
+- [x] Copy spoke integrations configuration
+- [x] Copy pricing configuration
+- [x] Copy branding configuration
+- [x] Copy all logo assets
+
+## Database Schema
+- [x] Create purchases table with hub/spoke tracking
+- [x] Push database schema
+
+## Backend API
+- [x] Migrate config loader functions
+- [x] Add hub vendor API endpoints
+- [x] Add spoke integrations API endpoints
+- [x] Add purchase flow API endpoints
+
+## Frontend Pages
+- [x] Migrate Home page with hub selection
+- [x] Migrate IntegrationDetail page
+- [x] Migrate Purchase page (5-step flow)
+- [x] Set up routing in App.tsx
+
+## Features
+- [x] Multi-hub selection interface
+- [x] Hub-specific integration views
+- [x] Integration detail pages with hub+spoke display
+- [x] Purchase flow with email notifications
+- [x] International currency notice
+- [ ] Stripe payment integration (placeholder added - configure later with webdev_add_feature)
+
+## Testing & Deployment
+- [x] Test hub selection flow
+- [x] Test integration detail pages
+- [x] Test purchase flow
+- [ ] Create checkpoint for deployment
+- [ ] Verify preview and permanent deployment
+
+## Notes
+- Stripe integration is placeholder only - shows user-friendly error message
+- To enable Stripe: use webdev_add_feature with feature="stripe"
+- Related integrations feature removed for MVP (can be added later)
+- All 6 hub vendors configured: HubSpot, Autotask, Halo, ServiceNow, Jira, ConnectWise
+- Each hub has access to all 29 spoke integrations
+- Total: 174 unique integration combinations (6 × 29)
