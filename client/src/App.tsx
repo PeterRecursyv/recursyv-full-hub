@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import IntegrationDetail from "./pages/IntegrationDetail";
 import Purchase from "./pages/Purchase";
+import PurchaseSuccess from "./pages/PurchaseSuccess";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       {/* Multi-hub routes */}
       <Route path={"/hub/:hubId/integration/:spokeId"} component={IntegrationDetail} />
       <Route path={"/hub/:hubId/purchase"} component={Purchase} />
+      <Route path={"/purchase-success"} component={PurchaseSuccess} />
       
       {/* 404 */}
       <Route path={"/404"} component={NotFound} />
