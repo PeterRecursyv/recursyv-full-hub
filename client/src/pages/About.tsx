@@ -1,164 +1,236 @@
-import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Footer from "@/components/Footer";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { trpc } from "@/lib/trpc";
+import { Mail, Phone, MapPin, CheckCircle } from "lucide-react";
 
 export default function About() {
-  const [, setLocation] = useLocation();
+  const { data: branding } = trpc.config.branding.useQuery();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setLocation("/")}>
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-slate-900">Recursyv Full Hub</h1>
-                <p className="text-xs text-slate-600">Integration Marketplace</p>
-              </div>
-            </div>
-            <nav className="flex items-center gap-6">
-              <a href="/" className="text-sm font-medium hover:text-primary transition-colors">Home</a>
-              <a href="/about" className="text-sm font-medium text-primary">About Us</a>
-              <a href="/contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</a>
-            </nav>
+      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+        <div className="container flex h-16 items-center justify-between">
+          <div className="flex items-center gap-3">
+            {branding?.logo && (
+              <img src={branding.logo} alt={branding.companyName} className="h-12 w-auto" />
+            )}
           </div>
+          <nav className="flex items-center gap-6">
+            <a href="/" className="text-sm font-medium hover:text-primary transition-colors">
+              Home
+            </a>
+            <a href="/about" className="text-sm font-medium text-primary transition-colors">
+              About Us
+            </a>
+            <Button variant="outline" size="sm" asChild>
+              <a href="/contact">
+                <Mail className="mr-2 h-4 w-4" />
+                Contact
+              </a>
+            </Button>
+          </nav>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 py-16">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-slate-900 mb-6">
-            About Recursyv Full Hub
-          </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            We're building the future of business integrations, connecting your essential tools seamlessly.
-          </p>
-        </div>
+      <section className="container py-16 md:py-24">
+        <div className="max-w-4xl mx-auto">
 
-        {/* Mission Section */}
-        <Card className="mb-12 border-none shadow-xl">
-          <CardContent className="p-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Mission</h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-4">
-              At Recursyv, we believe that businesses shouldn't waste time on manual data entry and disconnected systems. 
-              Our mission is to provide seamless, reliable integrations that connect your hub platform with all the tools 
-              your team uses every day.
-            </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              We've built a comprehensive integration marketplace that supports multiple hub vendors and dozens of spoke 
-              integrations, giving you the flexibility to build the perfect tech stack for your business.
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* What We Offer */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">What We Offer</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Fast Integration Setup</h3>
-                <p className="text-slate-600">
-                  Get your integrations up and running in minutes, not weeks. Our streamlined process makes it easy to connect your tools.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Secure & Reliable</h3>
-                <p className="text-slate-600">
-                  Enterprise-grade security and 99.9% uptime guarantee. Your data is safe and your integrations always work.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Expert Support</h3>
-                <p className="text-slate-600">
-                  Our integration specialists are here to help you every step of the way, from setup to optimization.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">By the Numbers</h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold mb-2">174+</div>
-              <div className="text-blue-100">Integration Combinations</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">6</div>
-              <div className="text-blue-100">Hub Vendors</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">29</div>
-              <div className="text-blue-100">Spoke Integrations</div>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center">
-          <Card className="border-none shadow-xl bg-gradient-to-r from-blue-50 to-indigo-50">
-            <CardContent className="p-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Ready to Connect Your Tools?
-              </h2>
-              <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                Explore our integration marketplace and find the perfect connections for your business.
+          {/* About Us Content */}
+          <Card className="mb-12">
+            <CardHeader>
+              <CardTitle className="text-2xl">Who We Are</CardTitle>
+            </CardHeader>
+            <CardContent className="prose prose-gray max-w-none">
+              <p className="text-muted-foreground leading-relaxed">
+                {branding?.aboutUs}
               </p>
-              <div className="flex gap-4 justify-center">
-                <Button 
-                  size="lg"
-                  onClick={() => setLocation("/")}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8"
-                >
-                  View Integrations
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  onClick={() => setLocation("/contact")}
-                  className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8"
-                >
-                  Contact Us
+            </CardContent>
+          </Card>
+
+          {/* Video Section */}
+          <Card className="mb-12">
+            <CardHeader>
+              <CardTitle className="text-2xl">See How We Work</CardTitle>
+              <CardDescription>Learn more about our integration solutions</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src="https://player.vimeo.com/video/1131345189?badge=0&autopause=0&player_id=0&app_id=58479"
+                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                  title="Recursyv Integration Solutions"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Key Benefits */}
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                  Fully Managed Service
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  We handle all aspects of your integration, from initial setup to ongoing maintenance and support.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                  No Coding Required
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Our platform eliminates the need for technical expertise or time-intensive mapping exercises.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                  Secure & Reliable
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Data is securely encrypted in transit with proactive monitoring and built-in resilience.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                  Expert Support
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Our professional team supports hundreds of IT service providers globally with proven expertise.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Contact Information */}
+          <Card className="bg-primary/5 border-primary/20">
+            <CardHeader>
+              <CardTitle className="text-2xl">Get in Touch</CardTitle>
+              <CardDescription>
+                Ready to streamline your integrations? Contact us today.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-start gap-3">
+                <Mail className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <div className="font-medium">Email</div>
+                  <a 
+                    href={`mailto:${branding?.contactEmail}`}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {branding?.contactEmail}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Phone className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <div className="font-medium">Phone</div>
+                  <div className="text-sm text-muted-foreground space-y-1">
+                    <div>UK: {branding?.contactPhoneUK}</div>
+                    <div>US: {branding?.contactPhoneUS}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <div className="font-medium">Address</div>
+                  <div className="text-sm text-muted-foreground">
+                    {branding?.address}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <Button size="lg" asChild>
+                  <a href={`mailto:${branding?.contactEmail}`}>
+                    Contact Us Today
+                  </a>
                 </Button>
               </div>
             </CardContent>
           </Card>
         </div>
-      </main>
+      </section>
 
       {/* Footer */}
-      <Footer />
+      <footer className="border-t bg-muted/30 mt-24">
+        <div className="container py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="font-semibold mb-4">Contact Us</h3>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <a href={`mailto:${branding?.contactEmail}`} className="hover:text-foreground">
+                    {branding?.contactEmail}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span>UK: {branding?.contactPhoneUK}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span>US: {branding?.contactPhoneUS}</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Address</h3>
+              <p className="text-sm text-muted-foreground">{branding?.address}</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Follow Us</h3>
+              <div className="flex gap-4">
+                {branding?.social.twitter && (
+                  <a href={branding.social.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">
+                    Twitter
+                  </a>
+                )}
+                {branding?.social.linkedin && (
+                  <a href={branding.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">
+                    LinkedIn
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
+            <p>© {new Date().getFullYear()} {branding?.companyName}. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
+
