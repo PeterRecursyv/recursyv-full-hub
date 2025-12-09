@@ -97,3 +97,5 @@
 - [x] Create checkpoint
 - [x] Fix About Us page returning 404 error
 - [x] Create checkpoint
+- [x] Fix related integration links throwing 404 errors
+- [ ] Create checkpoint

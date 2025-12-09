@@ -446,7 +446,7 @@ export default function IntegrationDetail() {
                   <Card 
                     key={relatedSpoke.id} 
                     className="hover:shadow-lg transition-shadow cursor-pointer"
-                    onClick={() => setLocation(`/integration?hub=${hubId}&spoke=${relatedSpoke.id}`)}
+                    onClick={() => setLocation(`/hub/${hubId}/integration/${relatedSpoke.id}`)}
                   >
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4 mb-4">
