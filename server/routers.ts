@@ -20,10 +20,10 @@ export const appRouter = router({
 
   // Configuration endpoints
   config: router({
-    // Get all available hub vendors for selection
-    allHubVendors: publicProcedure.query(async () => {
-      const { loadAllHubVendors } = await import('./config-loader');
-      return loadAllHubVendors();
+    // Get lightweight hub vendor metadata for initial page load
+    hubVendorMetadata: publicProcedure.query(async () => {
+      const { loadHubVendorMetadata } = await import('./config-loader');
+      return loadHubVendorMetadata();
     }),
     // Get specific hub vendor by ID
     hubVendor: publicProcedure

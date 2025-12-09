@@ -68,3 +68,10 @@
 - [x] Add footer to all pages (Home, IntegrationDetail, Purchase, PurchaseSuccess)
 - [x] Test footer display on all pages
 - [x] Create checkpoint with footer added
+
+## CRITICAL - Fix Browser Crash (Loading Too Much Data)
+- [x] Create lightweight hub vendor metadata API (id, name, logo only)
+- [x] Update homepage to load only metadata initially
+- [x] Load full hub vendor + integrations only when user selects a hub
+- [x] Test homepage loads without crashing
+- [ ] Create checkpoint

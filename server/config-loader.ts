@@ -28,7 +28,22 @@ export function loadPricing(): PricingConfig {
   return JSON.parse(data);
 }
 
-// Get all available hub vendors
+// Get lightweight hub vendor metadata (for initial page load)
+export function loadHubVendorMetadata(): Array<{ id: string; name: string; logo: string; description: string; categories: string[] }> {
+  const hubVendorIds = ['hubspot', 'autotask', 'halo', 'servicenow', 'jira', 'connectwise'];
+  return hubVendorIds.map(id => {
+    const vendor = loadHubVendor(id);
+    return {
+      id: vendor.id,
+      name: vendor.name,
+      logo: vendor.logo,
+      description: vendor.description,
+      categories: vendor.categories
+    };
+  });
+}
+
+// Get all available hub vendors (full data - use sparingly)
 export function loadAllHubVendors(): HubVendor[] {
   const hubVendorIds = ['hubspot', 'autotask', 'halo', 'servicenow', 'jira', 'connectwise'];
   return hubVendorIds.map(id => loadHubVendor(id));

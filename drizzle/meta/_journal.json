@@ -15,6 +15,20 @@
       "when": 1764875786097,
       "tag": "0001_bright_miek",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1765284139841,
+      "tag": "0002_classy_richard_fisk",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1765287284800,
+      "tag": "0003_young_master_chief",
+      "breakpoints": true
     }
   ]
 }

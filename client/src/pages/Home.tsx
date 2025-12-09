@@ -25,7 +25,7 @@ export default function Home() {
 
   // Prefetch data on mount for instant subsequent loads
   useEffect(() => {
-    utils.config.allHubVendors.prefetch();
+    utils.config.hubVendorMetadata.prefetch();
     utils.config.branding.prefetch();
   }, [utils]);
 
@@ -48,8 +48,8 @@ export default function Home() {
     });
   };
 
-  // Load all hub vendors
-  const { data: allHubVendors, isLoading: isLoadingHubs } = trpc.config.allHubVendors.useQuery(undefined, {
+  // Load lightweight hub vendor metadata
+  const { data: hubVendorMetadata, isLoading: isLoadingHubs } = trpc.config.hubVendorMetadata.useQuery(undefined, {
     staleTime: 5 * 60 * 1000, // 5 minutes
     refetchOnWindowFocus: false,
   });
@@ -70,7 +70,7 @@ export default function Home() {
   });
 
   const integrations = spokeIntegrations || [];
-  const selectedHub = allHubVendors?.find((h) => h.id === selectedHubId);
+  const selectedHub = hubVendorMetadata?.find((h: { id: string; name: string; logo: string; description: string; categories: string[] }) => h.id === selectedHubId);
 
   // Filter integrations based on search
   const filteredIntegrations = useMemo(() => {
@@ -149,7 +149,7 @@ export default function Home() {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {allHubVendors?.map((hub) => (
+                  {hubVendorMetadata?.map((hub: { id: string; name: string; logo: string; description: string; categories: string[] }) => (
                     <button
                       key={hub.id}
                       onClick={() => handleHubSelect(hub.id)}
@@ -238,16 +238,7 @@ export default function Home() {
                   {selectedHub?.description}
                 </p>
 
-                <div className="space-y-4 mb-8">
-                  <h3 className="text-lg font-semibold text-blue-100">Key Features:</h3>
-                  {selectedHub?.features?.map((feature: string, index: number) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-blue-50">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                
+
                 <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
                   <p className="text-sm text-blue-100 mb-2">Available Integrations</p>
                   <p className="text-3xl font-bold">{integrations.length}</p>
