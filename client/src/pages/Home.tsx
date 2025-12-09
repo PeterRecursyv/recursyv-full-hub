@@ -17,7 +17,6 @@ export default function Home() {
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [requestForm, setRequestForm] = useState({
     vendorName: "",
-    category: "",
     useCase: "",
     email: "",
   });
@@ -34,7 +33,7 @@ export default function Home() {
     onSuccess: () => {
       alert("Thank you! Your integration request has been submitted successfully.");
       setIsRequestModalOpen(false);
-      setRequestForm({ vendorName: "", category: "", useCase: "", email: "" });
+      setRequestForm({ vendorName: "", useCase: "", email: "" });
     },
     onError: (error: any) => {
       alert(`Error submitting request: ${error.message}`);
@@ -44,7 +43,7 @@ export default function Home() {
   const handleRequestSubmit = () => {
     requestIntegrationMutation.mutate({
       vendorName: requestForm.vendorName,
-      category: requestForm.category,
+      category: "",
       useCase: requestForm.useCase,
       email: requestForm.email
     });
@@ -397,25 +396,7 @@ export default function Home() {
                 onChange={(e) => setRequestForm({ ...requestForm, vendorName: e.target.value })}
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="category">Category</Label>
-              <Select
-                value={requestForm.category}
-                onValueChange={(value) => setRequestForm({ ...requestForm, category: value })}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a category" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="ITSM">ITSM</SelectItem>
-                  <SelectItem value="CRM">CRM</SelectItem>
-                  <SelectItem value="PSA">PSA</SelectItem>
-                  <SelectItem value="RMM">RMM</SelectItem>
-                  <SelectItem value="ERP">ERP</SelectItem>
-                  <SelectItem value="Other">Other</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+
             <div className="space-y-2">
               <Label htmlFor="useCase">Use Case *</Label>
               <Textarea

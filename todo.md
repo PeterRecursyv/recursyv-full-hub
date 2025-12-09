@@ -86,3 +86,8 @@
 - [x] Test email notifications
 - [x] Confirm Gmail forwarding to info@recursyv.com is set up
 - [x] Create checkpoint
+
+## Form Updates
+- [x] Remove category menu from integration request form
+- [x] Update email template to exclude category field
+- [ ] Create checkpoint

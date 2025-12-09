@@ -77,10 +77,7 @@ export async function sendIntegrationRequestEmail(data: {
           <td style="padding: 12px; border: 1px solid #e5e7eb; font-weight: bold;">Vendor Name:</td>
           <td style="padding: 12px; border: 1px solid #e5e7eb;">${data.vendorName}</td>
         </tr>
-        <tr>
-          <td style="padding: 12px; border: 1px solid #e5e7eb; font-weight: bold;">Category:</td>
-          <td style="padding: 12px; border: 1px solid #e5e7eb;">${data.category}</td>
-        </tr>
+
         <tr style="background-color: #f3f4f6;">
           <td style="padding: 12px; border: 1px solid #e5e7eb; font-weight: bold;">Use Case:</td>
           <td style="padding: 12px; border: 1px solid #e5e7eb;">${data.useCase}</td>
