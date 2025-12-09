@@ -30,7 +30,7 @@ export default function Home() {
   }, [utils]);
 
   // Integration request mutation
-  const requestIntegrationMutation = trpc.system.notifyOwner.useMutation({
+  const requestIntegrationMutation = trpc.notification.sendIntegrationRequest.useMutation({
     onSuccess: () => {
       alert("Thank you! Your integration request has been submitted successfully.");
       setIsRequestModalOpen(false);
@@ -43,8 +43,10 @@ export default function Home() {
 
   const handleRequestSubmit = () => {
     requestIntegrationMutation.mutate({
-      title: 'New Integration Request',
-      content: `Vendor: ${requestForm.vendorName}\nCategory: ${requestForm.category}\nUse Case: ${requestForm.useCase}\nEmail: ${requestForm.email}`
+      vendorName: requestForm.vendorName,
+      category: requestForm.category,
+      useCase: requestForm.useCase,
+      email: requestForm.email
     });
   };
 

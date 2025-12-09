@@ -75,3 +75,14 @@
 - [x] Load full hub vendor + integrations only when user selects a hub
 - [x] Test homepage loads without crashing
 - [x] Create checkpoint
+
+## Email Notifications to recursyv@gmail.com
+- [x] Install nodemailer package
+- [x] Create email service module with SMTP configuration
+- [x] Update integration request form to use email notifications
+- [x] Update purchase flow (all 5 steps) to use email notifications
+- [x] Request Gmail app password from user
+- [x] Configure email secrets (SMTP_USER, SMTP_PASS, SMTP_TO)
+- [x] Test email notifications
+- [ ] Confirm Gmail forwarding to info@recursyv.com is set up
+- [ ] Create checkpoint

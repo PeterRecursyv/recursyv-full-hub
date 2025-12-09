@@ -110,11 +110,26 @@ export const appRouter = router({
     sendPurchaseNotification: publicProcedure
       .input((val: unknown) => val as any)
       .mutation(async ({ input }) => {
-        const { notifyOwner } = await import('./_core/notification');
+        const { sendPurchaseStepEmail } = await import('./email-service');
         
-        const success = await notifyOwner({
-          title: `Purchase Step ${input.step} Completed`,
-          content: JSON.stringify(input.data, null, 2),
+        const success = await sendPurchaseStepEmail({
+          purchaseId: input.purchaseId,
+          step: input.step,
+          stepData: input.data,
+        });
+        
+        return { success };
+      }),
+    sendIntegrationRequest: publicProcedure
+      .input((val: unknown) => val as any)
+      .mutation(async ({ input }) => {
+        const { sendIntegrationRequestEmail } = await import('./email-service');
+        
+        const success = await sendIntegrationRequestEmail({
+          vendorName: input.vendorName,
+          category: input.category,
+          useCase: input.useCase,
+          email: input.email,
         });
         
         return { success };
