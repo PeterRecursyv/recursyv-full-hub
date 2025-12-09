@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { trpc } from "@/lib/trpc";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function Contact() {
   const { data: branding } = trpc.config.branding.useQuery();
@@ -212,6 +213,9 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
