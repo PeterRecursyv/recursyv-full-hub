@@ -113,4 +113,4 @@
 - [x] Add skeleton loader for integration cards on homepage
 - [x] Add skeleton loader for integration detail page
 - [x] Test loading states
-- [ ] Create checkpoint
+- [x] Create checkpoint
