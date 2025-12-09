@@ -94,4 +94,6 @@
 
 ## Bug Fixes
 - [x] Fix "Related Integrations" showing "No related integrations found"
+- [x] Create checkpoint
+- [x] Fix About Us page returning 404 error
 - [ ] Create checkpoint

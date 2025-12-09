@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import IntegrationDetail from "./pages/IntegrationDetail";
 import Purchase from "./pages/Purchase";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
@@ -14,6 +15,7 @@ function Router() {
     <Switch>
       {/* Homepage with hub selection */}
       <Route path={"/"} component={Home} />
+      <Route path={"/about"} component={About} />
       
       {/* Multi-hub routes */}
       <Route path={"/hub/:hubId/integration/:spokeId"} component={IntegrationDetail} />
