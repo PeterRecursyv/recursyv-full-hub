@@ -42,8 +42,16 @@ export default function IntegrationDetail() {
   );
   const spoke = spokeIntegrations?.find((s: any) => s.id === spokeId);
   
-  // Related integrations feature removed for MVP
-  const relatedIntegrations: any[] = [];
+  // Find related integrations from the same hub with matching categories
+  const relatedIntegrations = spokeIntegrations
+    ?.filter((s: any) => {
+      if (!spoke || s.id === spoke.id) return false; // Exclude current integration
+      // Check if there are any matching categories
+      const spokeCategories = spoke.categories || [];
+      const sCategories = s.categories || [];
+      return spokeCategories.some((cat: string) => sCategories.includes(cat));
+    })
+    .slice(0, 3) || []; // Limit to 3 related integrations
   const { data: branding } = trpc.config.branding.useQuery(undefined, {
     staleTime: 5 * 60 * 1000, // 5 minutes
     refetchOnWindowFocus: false,

@@ -90,4 +90,8 @@
 ## Form Updates
 - [x] Remove category menu from integration request form
 - [x] Update email template to exclude category field
+- [x] Create checkpoint
+
+## Bug Fixes
+- [x] Fix "Related Integrations" showing "No related integrations found"
 - [ ] Create checkpoint
