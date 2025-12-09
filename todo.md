@@ -77,3 +77,21 @@
 - [x] Optimize frontend components (useMemo, useCallback)
 - [x] Test load performance
 - [x] Create checkpoint with optimizations
+
+## Critical Issue - Code Hanging
+- [x] Diagnose what is causing the hang (corrupted IntegrationDetail.tsx)
+- [x] Fix the hanging issue (restored from checkpoint)
+- [x] Test and verify fix
+- [ ] Create checkpoint
+
+## Email Notifications
+- [x] Review email implementation from vendor marketplace project
+- [x] Set up email system (using Manus notifyOwner - no SMTP needed)
+- [ ] Add email notification to purchase flow step 1 (customer info)
+- [ ] Add email notification to purchase flow step 2 (data types)
+- [ ] Add email notification to purchase flow step 3 (tariff details)
+- [ ] Add email notification to purchase flow step 4 (terms acceptance)
+- [ ] Add email notification to purchase flow step 5 (payment/manual)
+- [ ] Add email notification to integration request form
+- [ ] Test all email notifications
+- [ ] Create checkpoint with email system
