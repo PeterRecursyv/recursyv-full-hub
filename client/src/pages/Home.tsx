@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, ArrowRight, CheckCircle2 } from "lucide-react";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -461,6 +462,8 @@ export default function Home() {
           </div>
         </DialogContent>
       </Dialog>
+      
+      <Footer />
     </div>
   );
 }

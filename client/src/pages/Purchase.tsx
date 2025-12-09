@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -802,6 +803,8 @@ export default function Purchase() {
           )}
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 }
