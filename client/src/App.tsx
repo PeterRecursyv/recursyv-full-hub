@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import IntegrationDetail from "./pages/IntegrationDetail";
 import Purchase from "./pages/Purchase";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
@@ -16,6 +17,7 @@ function Router() {
       {/* Homepage with hub selection */}
       <Route path={"/"} component={Home} />
       <Route path={"/about"} component={About} />
+      <Route path={"/contact"} component={Contact} />
       
       {/* Multi-hub routes */}
       <Route path={"/hub/:hubId/integration/:spokeId"} component={IntegrationDetail} />
