@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -141,10 +142,18 @@ export default function Home() {
               {isLoadingHubs ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {Array.from({ length: 6 }).map((_, idx) => (
-                    <div key={idx} className="bg-white rounded-xl border-2 border-slate-200 p-8 animate-pulse">
-                      <div className="h-24 bg-slate-200 rounded-lg mb-4" />
-                      <div className="h-6 bg-slate-200 rounded w-2/3 mb-2" />
-                      <div className="h-4 bg-slate-200 rounded w-full" />
+                    <div key={idx} className="bg-white rounded-xl border-2 border-slate-200 p-8">
+                      <div className="flex items-center justify-center mb-6">
+                        <Skeleton className="h-24 w-32" />
+                      </div>
+                      <Skeleton className="h-6 w-2/3 mb-2" />
+                      <Skeleton className="h-4 w-full mb-2" />
+                      <Skeleton className="h-4 w-5/6 mb-4" />
+                      <div className="flex gap-2 mb-4">
+                        <Skeleton className="h-6 w-16 rounded-full" />
+                        <Skeleton className="h-6 w-20 rounded-full" />
+                      </div>
+                      <Skeleton className="h-5 w-40" />
                     </div>
                   ))}
                 </div>
@@ -279,21 +288,21 @@ export default function Home() {
                   {isLoadingIntegrations ? (
                     // Loading skeletons
                     Array.from({ length: 6 }).map((_, idx) => (
-                      <div key={idx} className="bg-white rounded-lg border-2 border-slate-200 animate-pulse">
+                      <div key={idx} className="bg-white rounded-lg border-2 border-slate-200">
                         <div className="p-6 flex items-center gap-6">
                           <div className="flex-shrink-0">
-                            <div className="w-16 h-16 bg-slate-200 rounded-lg" />
+                            <Skeleton className="w-16 h-16 rounded-lg" />
                           </div>
                           <div className="flex-1 min-w-0 space-y-3">
-                            <div className="h-5 bg-slate-200 rounded w-1/3" />
-                            <div className="h-4 bg-slate-200 rounded w-2/3" />
+                            <Skeleton className="h-5 w-1/3" />
+                            <Skeleton className="h-4 w-2/3" />
                             <div className="flex gap-2">
-                              <div className="h-6 bg-slate-200 rounded-full w-16" />
-                              <div className="h-6 bg-slate-200 rounded-full w-20" />
+                              <Skeleton className="h-6 w-16 rounded-full" />
+                              <Skeleton className="h-6 w-20 rounded-full" />
                             </div>
                           </div>
                           <div className="flex-shrink-0">
-                            <div className="h-9 w-32 bg-slate-200 rounded" />
+                            <Skeleton className="h-9 w-32 rounded" />
                           </div>
                         </div>
                       </div>

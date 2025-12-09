@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { trpc } from "@/lib/trpc";
 import { useLocation, useParams } from "wouter";
 import { ArrowLeft, Check, Clock, Shield, Zap, Database, RefreshCw, TrendingUp } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useEffect } from "react";
 
 export default function IntegrationDetail() {
@@ -57,7 +58,73 @@ export default function IntegrationDetail() {
     refetchOnWindowFocus: false,
   });
 
-  // spoke is now loaded directly via spokeIntegrationDetail query
+  // Show loading skeleton while data is being fetched
+  const isLoading = !hubVendor || !spoke;
+  
+  if (isLoading && (!spokeIntegrations || spokeIntegrations.length === 0)) {
+    return (
+      <div className="min-h-screen bg-background">
+        {/* Header Skeleton */}
+        <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Skeleton className="w-12 h-12 rounded-lg" />
+                <Skeleton className="h-6 w-48" />
+              </div>
+              <div className="flex items-center gap-6">
+                <Skeleton className="h-4 w-16" />
+                <Skeleton className="h-4 w-20" />
+                <Skeleton className="h-4 w-16" />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main className="container mx-auto px-4 py-8">
+          {/* Back Button Skeleton */}
+          <Skeleton className="h-10 w-48 mb-6" />
+
+          {/* Hero Section Skeleton */}
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-12 mb-8">
+            <div className="flex items-start gap-8">
+              <Skeleton className="w-24 h-24 rounded-xl flex-shrink-0" />
+              <div className="flex-1 space-y-4">
+                <Skeleton className="h-10 w-3/4" />
+                <Skeleton className="h-6 w-full" />
+                <Skeleton className="h-6 w-5/6" />
+                <div className="flex gap-2">
+                  <Skeleton className="h-6 w-20 rounded-full" />
+                  <Skeleton className="h-6 w-24 rounded-full" />
+                  <Skeleton className="h-6 w-20 rounded-full" />
+                </div>
+              </div>
+              <Skeleton className="h-12 w-40 rounded-lg" />
+            </div>
+          </div>
+
+          {/* Content Cards Skeleton */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {[1, 2, 3, 4].map((i) => (
+              <Card key={i}>
+                <CardHeader>
+                  <Skeleton className="h-6 w-48 mb-2" />
+                  <Skeleton className="h-4 w-full" />
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-5/6" />
+                  <Skeleton className="h-4 w-4/6" />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </main>
+
+        <Footer />
+      </div>
+    );
+  }
   
   if (!hubVendor || !spoke) {
     return (

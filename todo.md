@@ -106,4 +106,11 @@
 - [x] Test critical user flows (homepage → integration → purchase)
 - [x] Document any 404 errors found - NO 404 ERRORS FOUND
 - [x] All navigation links verified working
+- [x] Create checkpoint
+
+## UX Improvements - Loading Skeletons
+- [x] Add skeleton loader for hub vendor cards on homepage
+- [x] Add skeleton loader for integration cards on homepage
+- [x] Add skeleton loader for integration detail page
+- [x] Test loading states
 - [ ] Create checkpoint
