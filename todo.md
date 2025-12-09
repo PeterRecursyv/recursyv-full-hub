@@ -84,5 +84,5 @@
 - [x] Request Gmail app password from user
 - [x] Configure email secrets (SMTP_USER, SMTP_PASS, SMTP_TO)
 - [x] Test email notifications
-- [ ] Confirm Gmail forwarding to info@recursyv.com is set up
-- [ ] Create checkpoint
+- [x] Confirm Gmail forwarding to info@recursyv.com is set up
+- [x] Create checkpoint
