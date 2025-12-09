@@ -1,4 +1,4 @@
-import { int, mysqlEnum, mysqlTable, text, timestamp, varchar, index } from "drizzle-orm/mysql-core";
+import { int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -69,13 +69,7 @@ export const purchases = mysqlTable("purchases", {
   
   createdAt: timestamp("createdAt").defaultNow(),
   updatedAt: timestamp("updatedAt").defaultNow(),
-}, (table) => ({
-  hubVendorIdx: index("hubVendorIdx").on(table.hubVendorId),
-  spokeIntegrationIdx: index("spokeIntegrationIdx").on(table.spokeIntegrationId),
-  customerEmailIdx: index("customerEmailIdx").on(table.customerEmail),
-  paymentStatusIdx: index("paymentStatusIdx").on(table.paymentStatus),
-  timestampIdx: index("timestampIdx").on(table.timestamp),
-}));
+});
 
 export type Purchase = typeof purchases.$inferSelect;
 export type InsertPurchase = typeof purchases.$inferInsert;
