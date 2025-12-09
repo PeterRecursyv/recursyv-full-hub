@@ -74,4 +74,4 @@
 - [x] Update homepage to load only metadata initially
 - [x] Load full hub vendor + integrations only when user selects a hub
 - [x] Test homepage loads without crashing
-- [ ] Create checkpoint
+- [x] Create checkpoint
